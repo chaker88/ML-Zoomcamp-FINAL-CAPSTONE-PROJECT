@@ -2,7 +2,10 @@ from fastapi import FastAPI
 import tensorflow as tf
 import joblib
 import numpy as np
-from .schema import ModelInput
+try:
+    from .schema import ModelInput
+except ImportError:
+    from schema import ModelInput
 
 # Initialize FastAPI app
 app = FastAPI(title="Employment Prediction API", version="1.0.0")
